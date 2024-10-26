@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+Workout
+{% endblock title %}
+{% block body %}
+<form method="POST" action="/new" class="container mt-3">
+    <h2>Add new Workout</h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="mb-3">
+        <label for="pushups" class="form-label">Push-Ups</label>
+        <input type="number" class="form-control" id="pushups" name="pushups"
+            placeholder="Enter number of pushups done">
+    </div>
+    <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <input type="text" class="form-control" id="comment" name="comment" placeholder="Any Comment">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Workout</button>
+</form>
+{% endblock body %}
